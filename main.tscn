@@ -11,7 +11,7 @@ bg_color = Color(0.140447, 0.140447, 0.140447, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
 bg_color = Color(0.099986, 0.099986, 0.099986, 1)
 
-[node name="Control" type="Control"]
+[node name="MainWindow" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,12 +28,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Panel2" type="Panel" parent="HBoxContainer"]
+[node name="NavBar" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/NavBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,42 +45,42 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="NavigationBar" type="HBoxContainer" parent="HBoxContainer/Panel2/MarginContainer"]
+[node name="NavigationBar" type="HBoxContainer" parent="HBoxContainer/NavBar/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 script = ExtResource("1_ig7tw")
 
-[node name="Label" type="Label" parent="HBoxContainer/Panel2/MarginContainer/NavigationBar"]
+[node name="Logo" type="Label" parent="HBoxContainer/NavBar/MarginContainer/NavigationBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "Blazium launcher"
 
-[node name="Button" type="Button" parent="HBoxContainer/Panel2/MarginContainer/NavigationBar"]
+[node name="Library" type="Button" parent="HBoxContainer/NavBar/MarginContainer/NavigationBar"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ig7tw")
 toggle_mode = true
 text = "Library"
 
-[node name="Button2" type="Button" parent="HBoxContainer/Panel2/MarginContainer/NavigationBar"]
+[node name="AssetStore" type="Button" parent="HBoxContainer/NavBar/MarginContainer/NavigationBar"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ig7tw")
 toggle_mode = true
 text = "Asset Store"
 
-[node name="Button3" type="Button" parent="HBoxContainer/Panel2/MarginContainer/NavigationBar"]
+[node name="Settings" type="Button" parent="HBoxContainer/NavBar/MarginContainer/NavigationBar"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ig7tw")
 toggle_mode = true
 text = "Settings"
 
-[node name="Panel" type="Panel" parent="HBoxContainer"]
+[node name="Content" type="Panel" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ig7tw")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,5 +92,5 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Control" parent="HBoxContainer/Panel/MarginContainer" instance=ExtResource("2_0xm2m")]
+[node name="Library" parent="HBoxContainer/Content/MarginContainer" instance=ExtResource("2_0xm2m")]
 layout_mode = 2
