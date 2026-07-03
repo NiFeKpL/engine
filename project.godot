@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Engine"
+run/main_scene="uid://cefgc0hivna7l"
+config/features=PackedStringArray("4.3.2", "Forward Plus")
+run/low_processor_mode=true
+config/icon="res://icon.svg"
+
+[blazium]
+
+justamcp/tools/project_tools=true
+
+[display]
+
+window/size/mode=1
+window/subwindows/embed_subwindows=false
+
+[rendering]
+
+renderer/rendering_method="mobile"

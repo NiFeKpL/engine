@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1i3y1335ejxn"]
+
+[ext_resource type="Script" uid="uid://bcv3bc7k81rnv" path="res://engine_library.gd" id="1_2cia1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="EngineLibrary" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("1_2cia1")
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/EngineLibrary"]
+layout_mode = 2
+text = "Downloaded engine"
+
+[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer/EngineLibrary"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "+"
+
+[node name="ProjectsLibrary" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ProjectsLibrary"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer/ProjectsLibrary/HBoxContainer"]
+layout_mode = 2
+text = "Your projects"
+
+[node name="Button" type="Button" parent="VBoxContainer/ProjectsLibrary/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "+"
+
+[node name="AssetsLibrary" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AssetsLibrary"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AssetsLibrary/HBoxContainer"]
+layout_mode = 2
+text = "Downloaded assets"
+
+[node name="Button" type="Button" parent="VBoxContainer/AssetsLibrary/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "+"
+
+[node name="spacer" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/EngineLibrary/Button" to="VBoxContainer/VBoxContainer/EngineLibrary" method="_on_button_button_down"]
