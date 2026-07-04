@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3w5lncdcllqg"]
+
+[ext_resource type="ButtonGroup" uid="uid://dxkncwr4cbg28" path="res://library/engine_library/engine_download/type_of_engine_button_group.tres" id="1_flmxn"]
+[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://engine_download.gd" id="1_w7rp6"]
+[ext_resource type="Theme" uid="uid://c8okuo1d0snif" path="res://theme.tres" id="2_ew8n0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flmxn"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.168627, 0.141176, 0.247059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.176471, 0.286275, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew8n0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.137255, 0.109804, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.207843, 0.180392, 0.290196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flmxn"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7rp6"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.368627, 0.192157, 0.592157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.466667, 0.227451, 0.756863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdih1"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew8n0"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha6s2"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[node name="EngineDownload" type="CenterContainer" node_paths=PackedStringArray("type_button", "version_option_button", "VersionTypeContainer", "ButtonsContainer", "Loading")]
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_w7rp6")
+type_button = NodePath("PanelContainer/VBoxContainer/ColorRect/HBoxContainer/CheckButton")
+version_option_button = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer/VersionOptionButton")
+VersionTypeContainer = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer")
+ButtonsContainer = NodePath("PanelContainer/VBoxContainer/ButtonsContainer")
+Loading = NodePath("PanelContainer/VBoxContainer/Loading")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_flmxn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ColorRect" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ew8n0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CheckButton" type="Button" parent="PanelContainer/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
+toggle_mode = true
+button_group = ExtResource("1_flmxn")
+text = "Release"
+
+[node name="CheckButton2" type="Button" parent="PanelContainer/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ew8n0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ha6s2")
+toggle_mode = true
+button_group = ExtResource("1_flmxn")
+text = "Nightly"
+
+[node name="VersionTypeContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VersionTypeContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer"]
+layout_mode = 2
+text = "Version"
+
+[node name="VersionOptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_ew8n0")
+enable_search_bar_on_item_count = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VersionTypeContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer2"]
+layout_mode = 2
+text = "C# Support"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_ew8n0")
+selected = 0
+item_count = 2
+popup/item_0/text = "No"
+popup/item_0/id = 0
+popup/item_1/text = "Include"
+popup/item_1/id = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VersionTypeContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Export Templates"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_ew8n0")
+selected = 0
+item_count = 2
+popup/item_0/text = "No"
+popup/item_0/id = 0
+popup/item_1/text = "Include"
+popup/item_1/id = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_ew8n0")
+theme_type_variation = &"Button"
+text = "Get Release x.x.xxx"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_ew8n0")
+theme_type_variation = &"Button1"
+text = "View Changelog"
+
+[node name="Loading" type="Label" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Loading data"

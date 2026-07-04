@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3.2", "Forward Plus")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBusGlobal="*res://signal_bus.gd"
+
 [blazium]
 
 justamcp/tools/project_tools=true
@@ -24,6 +28,7 @@ justamcp/tools/project_tools=true
 
 window/size/mode=1
 window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
 
 [rendering]
 

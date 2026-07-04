@@ -1,15 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ph0n88acsoxm"]
+[gd_scene load_steps=2 format=3 uid="uid://b4t6ibargc0cp"]
 
-[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://popup_engine.gd" id="1_lv35g"]
+[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://engine_download.gd" id="1_lv35g"]
 
-[node name="PopupPanel" type="Window" node_paths=PackedStringArray("list")]
+[node name="PopupPanel" type="Window"]
 initial_position = 1
 size = Vector2i(500, 300)
 transient = true
 transient_to_focused = true
 exclusive = true
 script = ExtResource("1_lv35g")
-list = NodePath("MarginContainer/VBoxContainer/ScrollContainer/ListContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

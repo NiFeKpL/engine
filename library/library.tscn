@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1i3y1335ejxn"]
 
-[ext_resource type="Script" uid="uid://bcv3bc7k81rnv" path="res://engine_library.gd" id="1_2cia1"]
+[ext_resource type="Script" uid="uid://bcv3bc7k81rnv" path="res://library/engine_library/engine_library.gd" id="1_2cia1"]
 
 [node name="Library" type="Control"]
 layout_mode = 3
@@ -19,21 +19,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="EngineLibrary" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="EngineLibrary" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EngineLibrary"]
 layout_mode = 2
 theme_override_constants/separation = 15
 script = ExtResource("1_2cia1")
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/EngineLibrary"]
+[node name="Label" type="Label" parent="VBoxContainer/EngineLibrary/HBoxContainer"]
 layout_mode = 2
 text = "Downloaded engine"
 
-[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer/EngineLibrary"]
+[node name="Button" type="Button" parent="VBoxContainer/EngineLibrary/HBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 12
 text = "+"
 
@@ -51,6 +52,7 @@ text = "Your projects"
 [node name="Button" type="Button" parent="VBoxContainer/ProjectsLibrary/HBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 12
 text = "+"
 
@@ -67,6 +69,7 @@ text = "Downloaded assets"
 [node name="Button" type="Button" parent="VBoxContainer/AssetsLibrary/HBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 12
 text = "+"
 
@@ -74,4 +77,4 @@ text = "+"
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="button_down" from="VBoxContainer/VBoxContainer/EngineLibrary/Button" to="VBoxContainer/VBoxContainer/EngineLibrary" method="_on_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/EngineLibrary/HBoxContainer/Button" to="VBoxContainer/EngineLibrary/HBoxContainer" method="_on_button_button_down"]

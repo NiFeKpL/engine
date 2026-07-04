@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn3m8iea4gew0"]
+
+[ext_resource type="Script" uid="uid://drppetarbd5qm" path="res://navigation_bar/navigation_bar.gd" id="1_j5age"]
+[ext_resource type="ButtonGroup" uid="uid://dsdkbwosj4tqa" path="res://navigation_bar/navigation_button_group.tres" id="2_kg5rf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.168627, 0.141176, 0.247059, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flmxn"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7rp6"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.368627, 0.192157, 0.592157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.466667, 0.227451, 0.756863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdih1"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+
+[node name="NavBar" type="Panel"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="NavigationBar" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("1_j5age")
+
+[node name="Logo" type="Label" parent="MarginContainer/NavigationBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Blazium launcher"
+
+[node name="Library" type="Button" parent="MarginContainer/NavigationBar"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_kg5rf")
+text = "Library"
+
+[node name="AssetStore" type="Button" parent="MarginContainer/NavigationBar"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
+toggle_mode = true
+text = "Asset Store"
+
+[node name="Settings" type="Button" parent="MarginContainer/NavigationBar"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
+toggle_mode = true
+text = "Settings"
