@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 SignalBusGlobal="*res://signal_bus.gd"
 Settings="*res://settings/settings.gd"
+DownloadManager="*res://download/download_manager.gd"
 
 [blazium]
 

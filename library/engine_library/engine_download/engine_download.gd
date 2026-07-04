@@ -124,7 +124,9 @@ func _update_editor_specifications() -> void:
 func _on_download_button_pressed() -> void:
 	if not actual_download:
 		return
-	print(actual_download['download_url'])
+	var actual_version = actual_versions.get(version_option_button.selected)
+	var file_name : String = "engine/%s_%s%s.zip" % [actual_version.version,actual_version.deploy_type,"" if net_include.selected != 1 else "_mono"]
+	DownloadManager.add_to_download(actual_download['download_url'],Settings.path.path_join(file_name))
 
 func format_size(bytes: float) -> String:
 	if bytes <= 0:

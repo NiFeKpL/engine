@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3w5lncdcllqg"]
 
 [ext_resource type="ButtonGroup" uid="uid://dxkncwr4cbg28" path="res://library/engine_library/engine_download/type_of_engine_button_group.tres" id="1_flmxn"]
-[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://engine_download.gd" id="1_w7rp6"]
+[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://library/engine_library/engine_download/engine_download.gd" id="1_w7rp6"]
 [ext_resource type="Theme" uid="uid://c8okuo1d0snif" path="res://theme.tres" id="2_ew8n0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flmxn"]

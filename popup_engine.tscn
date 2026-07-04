@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4t6ibargc0cp"]
 
-[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://engine_download.gd" id="1_lv35g"]
+[ext_resource type="Script" uid="uid://02fjc5ai60ab" path="res://library/engine_library/engine_download/engine_download.gd" id="1_lv35g"]
 
 [node name="PopupPanel" type="Window"]
 initial_position = 1
