@@ -38,4 +38,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ig7tw")
 
 [node name="SiteContainer" parent="HBoxContainer/Content" instance=ExtResource("2_xwkvk")]
 layout_mode = 1
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 script = ExtResource("3_c651c")

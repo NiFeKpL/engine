@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn3m8iea4gew0"]
+[gd_scene load_steps=8 format=3 uid="uid://dn3m8iea4gew0"]
 
 [ext_resource type="Script" uid="uid://drppetarbd5qm" path="res://navigation_bar/navigation_bar.gd" id="1_j5age"]
+[ext_resource type="Texture2D" uid="uid://b3righy7vba18" path="res://assets/logo_text.png" id="2_18c1y"]
 [ext_resource type="ButtonGroup" uid="uid://dsdkbwosj4tqa" path="res://navigation_bar/navigation_button_group.tres" id="2_kg5rf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
@@ -58,11 +59,22 @@ layout_mode = 2
 theme_override_constants/separation = 15
 script = ExtResource("1_j5age")
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NavigationBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_18c1y")
+expand_mode = 3
+stretch_mode = 6
+
 [node name="Logo" type="Label" parent="MarginContainer/NavigationBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "Blazium launcher"
+
+[node name="Control" type="Control" parent="MarginContainer/NavigationBar"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Library" type="Button" parent="MarginContainer/NavigationBar"]
 layout_mode = 2
@@ -92,6 +104,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
 toggle_mode = true
+button_group = ExtResource("2_kg5rf")
 text = "Asset Store"
 
 [node name="Settings" type="Button" parent="MarginContainer/NavigationBar"]
@@ -106,4 +119,5 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_flmxn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w7rp6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sdih1")
 toggle_mode = true
+button_group = ExtResource("2_kg5rf")
 text = "Settings"

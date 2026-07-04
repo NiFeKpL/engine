@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://i5q30yldach7"]
+
+[ext_resource type="Script" uid="uid://comuke3u4jgwp" path="res://settings/settings_container.gd" id="1_qw37j"]
+[ext_resource type="Theme" uid="uid://c8okuo1d0snif" path="res://theme.tres" id="2_7mmtj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpog1"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.168627, 0.141176, 0.247059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.176471, 0.286275, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Settings" type="CenterContainer" node_paths=PackedStringArray("path_button", "path_label", "save_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qw37j")
+path_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Button")
+path_label = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PathLabel")
+save_button = NodePath("PanelContainer/VBoxContainer/SaveButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bpog1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Path"
+
+[node name="PathLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_7mmtj")
+theme_type_variation = &"addButton1"
+text = "+"
+
+[node name="SaveButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme = ExtResource("2_7mmtj")
+theme_type_variation = &"Button"
+text = "Save settings"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+use_native_dialog = true

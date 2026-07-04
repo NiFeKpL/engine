@@ -76,14 +76,20 @@ content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 10.0
 
-[node name="EngineDownload" type="CenterContainer" node_paths=PackedStringArray("type_button", "version_option_button", "VersionTypeContainer", "ButtonsContainer", "Loading")]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="EngineDownload" type="CenterContainer" node_paths=PackedStringArray("VersionTypeContainer", "ButtonsContainer", "details_label", "type_button", "version_option_button", "net_include", "download_button", "Loading")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_w7rp6")
-type_button = NodePath("PanelContainer/VBoxContainer/ColorRect/HBoxContainer/CheckButton")
-version_option_button = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer/VersionOptionButton")
 VersionTypeContainer = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer")
 ButtonsContainer = NodePath("PanelContainer/VBoxContainer/ButtonsContainer")
+details_label = NodePath("PanelContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Label")
+type_button = NodePath("PanelContainer/VBoxContainer/ColorRect/HBoxContainer/CheckButton")
+version_option_button = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer/VersionOptionButton")
+net_include = NodePath("PanelContainer/VBoxContainer/VersionTypeContainer/VBoxContainer2/OptionButton")
+download_button = NodePath("PanelContainer/VBoxContainer/ButtonsContainer/VBoxContainer/DownloadButton")
 Loading = NodePath("PanelContainer/VBoxContainer/Loading")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -149,6 +155,7 @@ text = "Version"
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_ew8n0")
+allow_reselect = true
 enable_search_bar_on_item_count = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VersionTypeContainer"]
@@ -193,15 +200,26 @@ popup/item_1/id = 1
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/ButtonsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="DownloadButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_ew8n0")
 theme_type_variation = &"Button"
 text = "Get Release x.x.xxx"
 
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "61.5mb - Jul 1, 2026"
+horizontal_alignment = 1
+
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 focus_mode = 0
 theme = ExtResource("2_ew8n0")
 theme_type_variation = &"Button1"

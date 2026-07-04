@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1i3y1335ejxn"]
+[gd_scene load_steps=3 format=3 uid="uid://d1i3y1335ejxn"]
 
 [ext_resource type="Script" uid="uid://bcv3bc7k81rnv" path="res://library/engine_library/engine_library.gd" id="1_2cia1"]
+[ext_resource type="Theme" uid="uid://c8okuo1d0snif" path="res://theme.tres" id="2_yvvp2"]
 
 [node name="Library" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 
 [node name="EngineLibrary" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -29,12 +30,14 @@ script = ExtResource("1_2cia1")
 
 [node name="Label" type="Label" parent="VBoxContainer/EngineLibrary/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Downloaded engine"
 
 [node name="Button" type="Button" parent="VBoxContainer/EngineLibrary/HBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("2_yvvp2")
+theme_type_variation = &"addButton"
 theme_override_font_sizes/font_size = 12
 text = "+"
 
@@ -47,12 +50,14 @@ theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="VBoxContainer/ProjectsLibrary/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Your projects"
 
 [node name="Button" type="Button" parent="VBoxContainer/ProjectsLibrary/HBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("2_yvvp2")
+theme_type_variation = &"addButton"
 theme_override_font_sizes/font_size = 12
 text = "+"
 
@@ -64,12 +69,14 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/AssetsLibrary/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Downloaded assets"
 
 [node name="Button" type="Button" parent="VBoxContainer/AssetsLibrary/HBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("2_yvvp2")
+theme_type_variation = &"addButton"
 theme_override_font_sizes/font_size = 12
 text = "+"
 
