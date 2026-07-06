@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBusGlobal="*res://signal_bus.gd"
+SignalBusGlobal="*res://managers/signal_bus.gd"
 SettingsManager="*res://managers/settings_manager.gd"
 DownloadManager="*res://managers/download_manager.gd"
 EngineManager="*res://managers/engine_manager.gd"
