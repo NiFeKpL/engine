@@ -41,7 +41,7 @@ func download_next() -> void:
 		total_tasks_in_queue = 0
 		actual_download_task = null
 		SignalBusGlobal.queue_empty.emit.call_deferred()
-		print("All files downloaded.")
+		#print("All files downloaded.")
 		return
 	
 	actual_download_task = download_queue.pop_front()
@@ -80,7 +80,7 @@ func _on_request_completed(result: int, response_code: int, _headers: PackedStri
 	http_request.set_download_file("")
 	
 	if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
-		print('download finished')
+		#print('download finished')
 		is_downloading = false
 		is_unzip = true
 		start_unzip_file(actual_download_task)
@@ -99,15 +99,15 @@ func start_unzip_file(task: DownloadTask) -> void:
 		"total_files_count": total_tasks_in_queue
 	}
 	
-	var task_id = WorkerThreadPool.add_task(unzip_file.bind(params), true, "UNZIP_" + zip_path.get_file())
-	print("ID task: ", task_id)
+	var _task_id = WorkerThreadPool.add_task(unzip_file.bind(params), true, "UNZIP_" + zip_path.get_file())
+	#print("ID task: ", task_id)
 
 func unzip_file(dane: Dictionary) -> void:
 	var zip_path = dane.get("path_zip", "")
 	var folder_path = dane.get("folder_path", "")
 	var current_file_num = dane.get("current_file_num", "")
 	var total_files_count = dane.get("total_files_count", "")
-	print("test",current_file_num,total_files_count)
+	#print("test",current_file_num,total_files_count)
 	
 	OS.delay_msec(50)
 	
@@ -156,7 +156,7 @@ func unzip_file(dane: Dictionary) -> void:
 	reader.close()
 	
 	delete_zip_file(zip_path)
-	print("UNZIP!")
+	#print("UNZIP!")
 	
 	SignalBusGlobal.download_finished.emit.call_deferred(folder_path)
 	
@@ -171,7 +171,8 @@ func delete_zip_file(path: String) -> void:
 	if FileAccess.file_exists(path):
 		var blad = DirAccess.remove_absolute(path)
 		if blad == OK:
-			print("Delete finished: ", path)
+			#print("Delete finished: ", path)
+			pass
 		else:
 			print("Error with deleting zip file: ", blad)
 	else:

@@ -19,8 +19,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBusGlobal="*res://signal_bus.gd"
-Settings="*res://settings/settings.gd"
-DownloadManager="*res://download/download_manager.gd"
+SettingsManager="*res://managers/settings_manager.gd"
+DownloadManager="*res://managers/download_manager.gd"
+EngineManager="*res://managers/engine_manager.gd"
 
 [blazium]
 

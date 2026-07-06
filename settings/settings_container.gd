@@ -14,8 +14,8 @@ func _ready() -> void:
 	if path_button != null:
 		path_button.pressed.connect(_on_file_button_pressed)
 	if path_label != null:
-		path_label.text = Settings.path
-		path = Settings.path
+		path_label.text = SettingsManager.path
+		path = SettingsManager.path
 	if save_button != null:
 		save_button.pressed.connect(_on_save_button_pressed)
 
@@ -38,9 +38,9 @@ func _on_save_button_pressed() -> void:
 		return
 		
 	save_button.disabled = true
-	if Settings.path != path:
+	if SettingsManager.path != path:
 		_move_thread = Thread.new()
-		var task = _move_thread_worker.bind(Settings.path, path)
+		var task = _move_thread_worker.bind(SettingsManager.path, path)
 		_move_thread.start(task)
 
 func _on_move_finished(success: bool, new_path: String) -> void:
@@ -49,7 +49,7 @@ func _on_move_finished(success: bool, new_path: String) -> void:
 		_move_thread = null
 
 	if success:
-		Settings.path = new_path
+		SettingsManager.path = new_path
 		print("Wątek zakończył pracę: Folder 'engine' przeniesiony pomyślnie!")
 		save_button.disabled = false
 	else:

@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://chym1j5tsjp6q"]
+
+[ext_resource type="Theme" uid="uid://c8okuo1d0snif" path="res://theme.tres" id="1_6q5q0"]
+[ext_resource type="Script" uid="uid://ccvimskgn5cp" path="res://library/engine_library/engine_item.gd" id="1_bitrw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvvp2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.168627, 0.141176, 0.247059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.176471, 0.286275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Engine" type="PanelContainer" node_paths=PackedStringArray("version_label", "type_label", "mono_label", "button", "option_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvvp2")
+script = ExtResource("1_bitrw")
+version_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/LabelVersion")
+type_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/LabelType")
+mono_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/LabelNet")
+button = NodePath("VBoxContainer/HBoxContainer2/ButtonUninstall")
+option_button = NodePath("VBoxContainer/HBoxContainer2/OptionButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelVersion" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "0.5.255"
+
+[node name="LabelType" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.384314)
+theme_override_font_sizes/font_size = 12
+text = "Release"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelNet" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "C#"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonUninstall" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6q5q0")
+theme_type_variation = &"addButton1"
+text = "Uninstall"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6q5q0")
+flat = true
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/text = "Engine directory"
+popup/item_0/id = 0

@@ -40,6 +40,21 @@ func _ready() -> void:
 	download_button.pressed.connect(_on_download_button_pressed)
 	
 	version_option_button.get_popup().max_size.y = 300
+	
+	SignalBusGlobal.download_finished.connect(_on_engine_downloaded)
+	SignalBusGlobal.engine_uninstalled.connect(_on_engine_uninstalled)
+
+func _on_engine_downloaded(output_path: String) -> void:
+	var actual_version = actual_versions.get(version_option_button.selected)
+	var file_name : String = "%s_%s%s" % [actual_version.version,actual_version.deploy_type,"" if net_include.selected != 1 else "_mono"]
+	if output_path.get_file() == file_name:
+		download_button.disabled = true
+
+func _on_engine_uninstalled(path: String) -> void:
+	var actual_version = actual_versions.get(version_option_button.selected)
+	var file_name : String = "%s_%s%s" % [actual_version.version,actual_version.deploy_type,"" if net_include.selected != 1 else "_mono"]
+	if path.get_file() == file_name:
+		download_button.disabled = true
 
 func _process(_delta: float) -> void:
 	if Loading.visible == true:
@@ -89,8 +104,12 @@ func _on_version_selected(index: int) -> void:
 	if error != OK:
 			print('Something gone wrong')
 	details_label.text = ''
-	print(version.version)
+	#print(version.version)
 	download_button.text = "Get Release %s" % [version.version]
+	if EngineManager._is_engine_version_exists(version.version):
+		download_button.disabled = true
+	else:
+		download_button.disabled = false
 
 func _on_net_selected(_index: int) -> void:
 	_update_editor_specifications()
@@ -107,7 +126,7 @@ func _update_editor_specifications() -> void:
 	var actual_version = actual_versions.get(version_option_button.selected)
 	
 	for version in actual_details:
-		if version['filename'].match("BlaziumEditor_v%s_%s%s.%s.zip" % [actual_version.version,Settings.os_name,"" if net_include.selected != 1 else ".mono",Settings.os_arch]):
+		if version['filename'].match("BlaziumEditor_v%s_%s%s.%s.zip" % [actual_version.version,SettingsManager.os_name,"" if net_include.selected != 1 else ".mono",SettingsManager.os_arch]):
 			actual_download = version
 	
 	if not actual_download:
@@ -126,7 +145,7 @@ func _on_download_button_pressed() -> void:
 		return
 	var actual_version = actual_versions.get(version_option_button.selected)
 	var file_name : String = "engine/%s_%s%s.zip" % [actual_version.version,actual_version.deploy_type,"" if net_include.selected != 1 else "_mono"]
-	DownloadManager.add_to_download(actual_download['download_url'],Settings.path.path_join(file_name))
+	DownloadManager.add_to_download(actual_download['download_url'],SettingsManager.path.path_join(file_name))
 
 func format_size(bytes: float) -> String:
 	if bytes <= 0:
